@@ -24,3 +24,8 @@ ai-dev validate && ai-dev trace --git
 ```
 
 Documentación del proyecto (requisitos, arquitectura, decisiones, tareas, validación y release): `docs/`. Estado: `ai-dev status`.
+
+## Licencia
+Licencia de uso: puedes usar MiAdmin y estudiarlo como ejemplo, también con fines comerciales, y adaptarlo para uso interno; no se permite distribuir versiones modificadas. Texto completo en [LICENSE](LICENSE).
+
+© 2026 Ing. Alexander Patiño Londoño.
