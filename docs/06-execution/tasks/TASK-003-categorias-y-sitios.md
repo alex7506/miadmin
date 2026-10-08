@@ -3,7 +3,7 @@ document_id: TASK-003
 document_type: TASK
 title: Categorías y sitios
 version: 0.1.0
-status: PENDING
+status: IN_PROGRESS
 project: miadmin
 methodology_version: 0.9.0
 created_at: 2026-10-08
