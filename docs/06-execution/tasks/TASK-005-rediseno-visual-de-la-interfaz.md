@@ -3,7 +3,7 @@ document_id: TASK-005
 document_type: TASK
 title: Rediseño visual de la interfaz
 version: 0.1.0
-status: IN_PROGRESS
+status: COMPLETED
 project: miadmin
 methodology_version: 0.9.0
 created_at: 2026-10-08
@@ -36,12 +36,35 @@ acceptance_criteria:
   - id: AC-5
     description: Metodología fijada en 1.0.0 y adaptadores sincronizados, con validate sin advertencias
 blocked_by: []
-evidence: []
+evidence:
+  - criterion: AC-1
+    type: SCREENSHOT
+    ref: 12 capturas con Chrome sin interfaz (crear, desbloquear, error, vacío, bóveda, categoría, diálogo; claro, oscuro y móvil 390 px); seleccionadas en docs/capturas/; commit 21938d7
+    recorded_at: 2026-10-08
+  - criterion: AC-2
+    type: TEST_RUN
+    ref: "npm test: 18 passed sin modificar src/*.test.ts; commit 21938d7"
+    recorded_at: 2026-10-08
+  - criterion: AC-3
+    type: REVIEW
+    ref: "Revisión de código: etiquetas en todos los campos y aria-label en botones de icono; anillo de foco :focus-visible; contraste de texto secundario ≥ 4.5:1 en ambos temas; prefers-reduced-motion; commit 21938d7"
+    recorded_at: 2026-10-08
+  - criterion: AC-4
+    type: REPORT
+    ref: package.json sin dependencias nuevas; gates CODE/BUILD/TEST/SECURITY ejecutados por ai-dev task complete; commit 21938d7
+    recorded_at: 2026-10-08
+  - criterion: AC-5
+    type: LOG
+    ref: "methodology.yaml version 1.0.0; ai-dev adapters sync; ai-dev validate: 0 errores, 0 advertencias; commit 21938d7"
+    recorded_at: 2026-10-08
 auto_fix_attempts: 0
 relations:
   - type: DERIVED_FROM
     target: CHANGE-001
 justification: "Implementa CHANGE-001: rediseño visual sin cambiar el comportamiento ni los requisitos, y actualización de la metodología fijada a 1.0.0."
+provenance:
+  generated_by: claude-code
+  model: claude-opus-5-5
 ---
 
 # TASK-005 — Rediseño visual de la interfaz
