@@ -5,6 +5,8 @@ import { MIN_MASTER_LENGTH, Vault, VaultError } from "./vault";
 export class App {
   private message: { text: string; kind: "error" | "info" } | null = null;
   private filter = "";
+  /** Contraseñas mostradas a petición; se descartan al bloquear. */
+  private readonly revealed = new Map<string, string>();
 
   constructor(
     private readonly root: HTMLElement,
@@ -121,13 +123,31 @@ export class App {
     return h("section", {}, h("h2", {}, "Sitios"), field("Filtrar", filter), table, form);
   }
 
-  /** Acciones por sitio; nunca se muestra la contraseña en la lista (FR-003 AC-2). */
-  protected siteActions(id: string): HTMLElement[] {
-    return [h("button", { type: "button", onclick: () => void this.run(() => this.vault.removeSite(id), "Sitio eliminado.") }, "Eliminar")];
+  /** Acciones por sitio. La contraseña solo se muestra a petición (FR-004) y nunca en la lista por defecto (FR-003 AC-2). */
+  private siteActions(id: string): HTMLElement[] {
+    const shown = this.revealed.get(id);
+    return [
+      shown !== undefined ? h("code", {}, shown) : null,
+      h(
+        "button",
+        {
+          type: "button",
+          onclick: () =>
+            void this.run(async () => {
+              if (this.revealed.has(id)) this.revealed.delete(id);
+              else this.revealed.set(id, await this.vault.revealPassword(id));
+            }),
+        },
+        shown !== undefined ? "Ocultar" : "Ver",
+      ),
+      h("button", { type: "button", onclick: () => void this.run(() => this.vault.copyPassword(id, navigator.clipboard), "Contraseña copiada.") }, "Copiar"),
+      h("button", { type: "button", onclick: () => void this.run(() => { this.revealed.delete(id); this.vault.removeSite(id); }, "Sitio eliminado.") }, "Eliminar"),
+    ].filter((el): el is HTMLElement => el !== null);
   }
 
   private lock(): void {
     this.vault.lock();
+    this.revealed.clear();
     this.message = { text: "Bóveda bloqueada.", kind: "info" };
     this.render();
   }

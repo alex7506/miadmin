@@ -3,7 +3,7 @@ document_id: TASK-004
 document_type: TASK
 title: Ver y copiar contraseña
 version: 0.1.0
-status: PENDING
+status: IN_PROGRESS
 project: miadmin
 methodology_version: 0.9.0
 created_at: 2026-10-08

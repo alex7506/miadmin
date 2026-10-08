@@ -170,6 +170,20 @@ export class Vault {
       .sort((a, b) => a.name.localeCompare(b.name, "es"));
   }
 
+  // --- Consultar contraseña (FR-004) ---------------------------------------------
+
+  /** Descifra la contraseña de un sitio, solo a petición (FR-004 AC-1). */
+  async revealPassword(siteId: string): Promise<string> {
+    const site = this.requireData().sites.find((s) => s.id === siteId);
+    if (!site) throw new VaultError("El sitio no existe.");
+    return decrypt(this.requireKey(), site.password);
+  }
+
+  /** Copia la contraseña descifrada al portapapeles (FR-004 AC-2). */
+  async copyPassword(siteId: string, clipboard: Pick<Clipboard, "writeText">): Promise<void> {
+    await clipboard.writeText(await this.revealPassword(siteId));
+  }
+
   protected requireKey(): CryptoKey {
     if (!this.key) throw new VaultError("La bóveda está bloqueada.");
     return this.key;

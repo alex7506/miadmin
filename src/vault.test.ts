@@ -153,3 +153,26 @@ describe("NFR-001 AC-2: nada sensible en claro en el almacenamiento", () => {
     expect(saved.sites[0].password).toEqual({ iv: expect.any(String), data: expect.any(String) });
   });
 });
+
+describe("consultar contraseña (FR-004)", () => {
+  it("AC-1: descifra a petición la contraseña del sitio elegido", async () => {
+    const vault = await unlockedVault();
+    const cat = vault.addCategory("Estudio");
+    const a = await vault.addSite(site(cat.id, { password: "ficticia-A" }));
+    const b = await vault.addSite(site(cat.id, { name: "Otro", password: "ficticia-B" }));
+    expect(await vault.revealPassword(a)).toBe("ficticia-A");
+    expect(await vault.revealPassword(b)).toBe("ficticia-B");
+    await expect(vault.revealPassword("no-existe")).rejects.toThrow("no existe");
+    vault.lock();
+    await expect(vault.revealPassword(a)).rejects.toThrow("bloqueada");
+  });
+
+  it("AC-2: copia la contraseña descifrada al portapapeles", async () => {
+    const vault = await unlockedVault();
+    const cat = vault.addCategory("Estudio");
+    const id = await vault.addSite(site(cat.id, { password: "ficticia-copiar" }));
+    let copied = "";
+    await vault.copyPassword(id, { writeText: async (text: string) => void (copied = text) });
+    expect(copied).toBe("ficticia-copiar");
+  });
+});
