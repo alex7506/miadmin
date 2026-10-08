@@ -3,7 +3,7 @@ document_id: TASK-002
 document_type: TASK
 title: Cifrado y clave maestra
 version: 0.1.0
-status: IN_PROGRESS
+status: COMPLETED
 project: miadmin
 methodology_version: 0.9.0
 created_at: 2026-10-08
@@ -35,7 +35,23 @@ acceptance_criteria:
     description: Bloquear descarta la clave de memoria (FR-001 AC-3), con pruebas
 blocked_by:
   - TASK-001
-evidence: []
+evidence:
+  - criterion: AC-1
+    type: TEST_RUN
+    ref: "src/crypto.test.ts (4 pruebas: parámetros, clave no exportable AES-GCM 256, IV único de 12 bytes, clave errónea no descifra) en verde; commit 363964a"
+    recorded_at: 2026-10-08
+  - criterion: AC-2
+    type: TEST_RUN
+    ref: "src/vault.test.ts › FR-001 AC-1: longitud mínima, coincidencia y bóveda única; commit 363964a"
+    recorded_at: 2026-10-08
+  - criterion: AC-3
+    type: TEST_RUN
+    ref: "src/vault.test.ts › FR-001 AC-2: clave incorrecta rechazada sin desbloquear; commit 363964a"
+    recorded_at: 2026-10-08
+  - criterion: AC-4
+    type: TEST_RUN
+    ref: "src/vault.test.ts › FR-001 AC-3: lock descarta la clave; commit 363964a"
+    recorded_at: 2026-10-08
 auto_fix_attempts: 0
 relations:
   - type: IMPLEMENTS
@@ -44,6 +60,9 @@ relations:
     target: NFR-001
   - type: DEPENDS_ON
     target: TASK-001
+provenance:
+  generated_by: claude-code
+  model: claude-opus-5-5
 ---
 
 # TASK-002 — Cifrado y clave maestra
