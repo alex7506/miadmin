@@ -3,13 +3,13 @@ document_id: REL-001
 document_type: RELEASE
 title: Release v0.1.0
 version: 0.1.0
-status: IN_REVIEW
+status: APPROVED
 project: miadmin
 methodology_version: 0.9.0
 created_at: 2026-10-08
 updated_at: 2026-10-08
 author: Claude Code
-approved_by: null
+approved_by: alexander
 source_of_truth: true
 release_version: 0.1.0
 environment: development
@@ -20,6 +20,7 @@ released_at: 2026-10-08
 relations:
   - type: DEPENDS_ON
     target: VAL-001
+approved_at: 2026-10-08
 ---
 
 # REL-001 — Release v0.1.0

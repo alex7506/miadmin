@@ -11,18 +11,23 @@ features:
 data_classification_max: RESTRICTED
 
 # Proveedores de IA concretos y el tipo de destino que representan.
-providers: []
-#  - name: <proveedor>
-#    destination_type: enterprise_llm
+# Claude Pro con "Help improve our AI models" desactivado (confirmado por el propietario el 2026-10-08):
+# las conversaciones y sesiones de código no se usan para entrenar. Es un plan de consumo, no un contrato
+# empresarial; el propietario acepta tratarlo como enterprise_llm (ver fricción 5 del piloto).
+providers:
+  - name: Anthropic Claude Pro
+    destination_type: enterprise_llm
+    note: Plan de consumo con entrenamiento desactivado; sin contrato empresarial.
 
 # Agentes habilitados; `capabilities` son los permisos concedidos.
-agents: []
-#  - agent_id: <id>
-#    type: DEVELOPER
-#    provider: <proveedor>
-#    tool: <herramienta>
-#    capabilities: [analysis, code_modification, test_generation, test_execution, git_read, commit]
-#    max_autonomy_level: 3
+agents:
+  - agent_id: claude-code
+    type: DEVELOPER
+    provider: Anthropic Claude Pro
+    tool: claude-code
+    model: claude-opus-5-5
+    capabilities: [analysis, requirements_analysis, architecture_design, documentation, code_generation, code_modification, test_generation, test_execution, dependency_analysis, dependency_change, git_read, git_write, commit, git_push]
+    max_autonomy_level: 3
 
 # Comando que verifica cada gate; `ai-dev task complete` los ejecuta. Sin comando, la verificación es manual.
 gate_commands:
