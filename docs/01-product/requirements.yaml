@@ -5,7 +5,7 @@ requirements:
   - id: FR-001
     title: Clave maestra y desbloqueo
     description: La persona crea una clave maestra la primera vez y la usa para desbloquear la bóveda en cada sesión.
-    status: APPROVED
+    status: VERIFIED
     priority: MUST
     source: INTAKE-001
     acceptance_criteria:
@@ -18,7 +18,7 @@ requirements:
   - id: FR-002
     title: Categorías
     description: La persona organiza sus sitios en categorías (p. ej. estudio, administrativo, correos electrónicos).
-    status: APPROVED
+    status: VERIFIED
     priority: MUST
     source: INTAKE-001
     acceptance_criteria:
@@ -29,7 +29,7 @@ requirements:
   - id: FR-003
     title: Sitios
     description: La persona registra sus accesos a sitios web con nombre, URL, descripción, usuario, contraseña y categoría.
-    status: APPROVED
+    status: VERIFIED
     priority: MUST
     source: INTAKE-001
     acceptance_criteria:
@@ -42,7 +42,7 @@ requirements:
   - id: FR-004
     title: Consultar contraseña
     description: La persona ve o copia la contraseña de un sitio cuando la necesita.
-    status: APPROVED
+    status: VERIFIED
     priority: MUST
     source: INTAKE-001
     acceptance_criteria:
@@ -53,7 +53,7 @@ requirements:
   - id: NFR-001
     title: Cifrado de contraseñas en el navegador
     description: Las contraseñas solo existen en claro en memoria del navegador; se almacenan cifradas con una clave derivada de la clave maestra.
-    status: APPROVED
+    status: VERIFIED
     priority: MUST
     category: Seguridad
     source: INTAKE-001

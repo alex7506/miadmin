@@ -11,10 +11,10 @@ Piloto mínimo para validar la metodología y `ai-dev`: bóveda personal de acce
 - Modo de rigor: LITE
 
 ## Stack aprobado
-Sin decidir hasta la fase TECHNOLOGY. No elijas ni instales tecnologías antes.
+Vite 8 + TypeScript 5.7 + Vitest 5, sin backend ni framework de interfaz (ADR-001). Cifrado PBKDF2-SHA-256 + AES-GCM con WebCrypto (ADR-002). Código: `src/crypto.ts` (criptografía), `src/vault.ts` (reglas y almacenamiento cifrado), `src/app.ts` (interfaz).
 
 ## Alcance
-Ver `docs/00-intake/INTAKE-001-intake-miadmin.md` (y el PRD cuando exista).
+Ver `docs/01-product/PRD-001-boveda-de-sitios.md` y `docs/01-product/requirements.yaml`.
 
 ## Fuera de alcance
 - Multi-tenant, superadministrador, suscripciones, backend, tema, subdominios y despliegue público (visión completa, proyecto posterior).
