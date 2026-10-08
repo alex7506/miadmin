@@ -1,2 +1,120 @@
 # Registro de aprobaciones humanas. Solo se añaden entradas (ai-dev approve); nunca se editan ni borran.
-approvals: []
+approvals:
+  - id: APR-001
+    by: alexander
+    role: PRODUCT_OWNER
+    decision: APPROVED
+    at: 2026-10-08T22:03:51.555Z
+    target_type: DOCUMENT
+    target: INTAKE-001
+    target_version: 0.2.0
+    target_hash: c9e46fda180a68a4
+  - id: APR-002
+    by: alexander
+    role: PRODUCT_OWNER
+    decision: APPROVED
+    at: 2026-10-08T22:03:57.742Z
+    target_type: DOCUMENT
+    target: PRD-001
+    target_version: 0.1.0
+    target_hash: 3c7b31d009b7defb
+  - id: APR-003
+    by: alexander
+    role: TECH_LEAD
+    decision: APPROVED
+    at: 2026-10-08T22:04:02.624Z
+    target_type: DOCUMENT
+    target: ARCH-001
+    target_version: 0.1.0
+    target_hash: bc1642cfe5f1e996
+  - id: APR-004
+    by: alexander
+    role: TECH_LEAD
+    decision: APPROVED
+    at: 2026-10-08T22:04:07.460Z
+    target_type: DOCUMENT
+    target: PLAN-001
+    target_version: 0.1.0
+    target_hash: 09777b9fd2b148d3
+  - id: APR-005
+    by: alexander
+    role: TECH_LEAD
+    decision: APPROVED
+    at: 2026-10-08T22:04:10.748Z
+    target_type: DOCUMENT
+    target: ADR-001
+    target_version: 0.1.0
+    target_hash: 6ac5aff58f7af57b
+  - id: APR-006
+    by: alexander
+    role: TECH_LEAD
+    decision: APPROVED
+    at: 2026-10-08T22:07:07.417Z
+    target_type: DOCUMENT
+    target: ADR-002
+    target_version: 0.1.0
+    target_hash: 90bee62ea3996624
+  - id: APR-007
+    by: alexander
+    role: PRODUCT_OWNER
+    decision: APPROVED
+    at: 2026-10-08T22:07:08.371Z
+    target_type: REQUIREMENTS
+    target: REQUIREMENTS
+    target_hash: 745a6e799eacf1d9
+  - id: APR-008
+    by: alexander
+    role: PRODUCT_OWNER
+    decision: APPROVED
+    at: 2026-10-08T22:07:09.137Z
+    target_type: PHASE
+    target: INTAKE
+  - id: APR-009
+    by: alexander
+    role: PRODUCT_OWNER
+    decision: APPROVED
+    at: 2026-10-08T22:07:09.825Z
+    target_type: PHASE
+    target: DISCOVERY
+  - id: APR-010
+    by: alexander
+    role: PRODUCT_OWNER
+    decision: APPROVED
+    at: 2026-10-08T22:07:10.705Z
+    target_type: PHASE
+    target: DEFINITION
+  - id: APR-011
+    by: alexander
+    role: PRODUCT_OWNER
+    decision: APPROVED
+    at: 2026-10-08T22:07:12.300Z
+    target_type: PHASE
+    target: DESIGN
+  - id: APR-012
+    by: alexander
+    role: TECH_LEAD
+    decision: APPROVED
+    at: 2026-10-08T22:07:13.784Z
+    target_type: PHASE
+    target: ARCHITECTURE
+  - id: APR-013
+    by: alexander
+    role: TECH_LEAD
+    decision: APPROVED
+    at: 2026-10-08T22:07:14.576Z
+    target_type: PHASE
+    target: TECHNOLOGY
+  - id: APR-014
+    by: alexander
+    role: TECH_LEAD
+    decision: APPROVED
+    at: 2026-10-08T22:07:15.648Z
+    target_type: PHASE
+    target: PLANNING
+  - id: APR-015
+    by: alexander
+    role: TECH_LEAD
+    decision: APPROVED
+    at: 2026-10-08T22:07:16.574Z
+    target_type: PHASE
+    target: BOOTSTRAPPING

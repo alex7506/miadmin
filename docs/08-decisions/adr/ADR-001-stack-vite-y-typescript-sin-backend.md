@@ -3,19 +3,20 @@ document_id: ADR-001
 document_type: ADR
 title: Stack Vite y TypeScript sin backend
 version: 0.1.0
-status: PROPOSED
+status: ACCEPTED
 project: miadmin
 methodology_version: 0.9.0
 created_at: 2026-10-08
 updated_at: 2026-10-08
 author: Claude Code
-approved_by: null
+approved_by: alexander
 source_of_truth: true
-decision_date: "2026-10-08"
+decision_date: 2026-10-08
 deciders: []
 relations:
   - type: DERIVED_FROM
     target: ARCH-001
+approved_at: 2026-10-08
 ---
 
 # ADR-001 — Stack Vite y TypeScript sin backend

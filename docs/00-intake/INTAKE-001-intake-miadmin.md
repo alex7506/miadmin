@@ -3,15 +3,16 @@ document_id: INTAKE-001
 document_type: PROJECT_INTAKE
 title: Intake MiAdmin
 version: 0.2.0
-status: IN_REVIEW
+status: APPROVED
 project: miadmin
 methodology_version: 0.9.0
 created_at: 2026-10-08
 updated_at: 2026-10-08
 author: Claude Code
-approved_by: null
+approved_by: alexander
 source_of_truth: true
 relations: []
+approved_at: 2026-10-08
 ---
 
 # Intake — MiAdmin (piloto mínimo)

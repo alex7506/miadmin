@@ -3,19 +3,20 @@ document_id: ADR-002
 document_type: ADR
 title: Cifrado PBKDF2 y AES-GCM con WebCrypto
 version: 0.1.0
-status: PROPOSED
+status: ACCEPTED
 project: miadmin
 methodology_version: 0.9.0
 created_at: 2026-10-08
 updated_at: 2026-10-08
 author: Claude Code
-approved_by: null
+approved_by: alexander
 source_of_truth: true
-decision_date: "2026-10-08"
+decision_date: 2026-10-08
 deciders: []
 relations:
   - type: IMPLEMENTS
     target: NFR-001
+approved_at: 2026-10-08
 ---
 
 # ADR-002 — Cifrado PBKDF2 y AES-GCM con WebCrypto

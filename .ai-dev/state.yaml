@@ -1,8 +1,8 @@
 # Estado operativo del proyecto. Lo mantiene la CLI; no editar a mano.
-phase: INTAKE
+phase: DEVELOPMENT
 status: ACTIVE
 current_task: null
 pending_decisions: []
 blocked_reason: null
-phase_started_at: 2026-10-08T21:15:02.668Z
-updated_at: 2026-10-08T21:15:02.668Z
+phase_started_at: 2026-10-08T22:07:16.628Z
+updated_at: 2026-10-08T22:07:16.628Z
