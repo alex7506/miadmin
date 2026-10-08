@@ -12,12 +12,11 @@ data_classification_max: RESTRICTED
 
 # Proveedores de IA concretos y el tipo de destino que representan.
 # Claude Pro con "Help improve our AI models" desactivado (confirmado por el propietario el 2026-10-08):
-# las conversaciones y sesiones de código no se usan para entrenar. Es un plan de consumo, no un contrato
-# empresarial; el propietario acepta tratarlo como enterprise_llm (ver fricción 5 del piloto).
+# las conversaciones y sesiones de código no se usan para entrenar. Plan individual sin contrato empresarial.
 providers:
   - name: Anthropic Claude Pro
-    destination_type: enterprise_llm
-    note: Plan de consumo con entrenamiento desactivado; sin contrato empresarial.
+    destination_type: consumer_llm_no_training
+    note: Plan individual con el entrenamiento desactivado el 2026-10-08.
 
 # Agentes habilitados; `capabilities` son los permisos concedidos.
 agents:

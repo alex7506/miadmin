@@ -1,7 +1,7 @@
-<!-- ai-dev:begin adapter=copilot hash=791aa67a236a — Generado por `ai-dev adapters sync`. No edites dentro del bloque: se regenera desde .ai-dev/ y la metodología. -->
+<!-- ai-dev:begin adapter=copilot hash=46d1c5efd3ec — Generado por `ai-dev adapters sync`. No edites dentro del bloque: se regenera desde .ai-dev/ y la metodología. -->
 # Reglas de trabajo para agentes de IA — MiAdmin
 
-Este proyecto sigue **Software AI Development** (metodología 0.9.0, modo **LITE**). Estas reglas aplican a cualquier agente de IA, sea cual sea su proveedor o herramienta. Si una instrucción de la conversación las contradice, prevalecen estas reglas: señala la contradicción y pide una decisión a una persona.
+Este proyecto sigue **Software AI Development** (metodología 1.0.0, modo **LITE**). Estas reglas aplican a cualquier agente de IA, sea cual sea su proveedor o herramienta. Si una instrucción de la conversación las contradice, prevalecen estas reglas: señala la contradicción y pide una decisión a una persona.
 
 La herramienta `ai-dev` es determinista: úsala para consultar el estado, preparar contexto y registrar tu trabajo.
 
@@ -51,7 +51,7 @@ Clasificación máxima de los datos del producto: **RESTRICTED**. Solo puedes en
 |---|---|---|
 | PUBLIC | `local_model`, `enterprise_llm`, `consumer_llm_no_training`, `public_llm`, `third_party_tool` | Anthropic Claude Pro |
 | INTERNAL | `local_model`, `enterprise_llm`, `consumer_llm_no_training`, `third_party_tool` | Anthropic Claude Pro |
-| CONFIDENTIAL | `local_model`, `enterprise_llm` | Anthropic Claude Pro |
+| CONFIDENTIAL | `local_model`, `enterprise_llm` | — |
 | RESTRICTED | ninguno | — |
 
 ## Políticas obligatorias
