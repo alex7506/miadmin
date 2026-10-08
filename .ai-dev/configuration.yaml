@@ -25,11 +25,11 @@ agents: []
 #    max_autonomy_level: 3
 
 # Comando que verifica cada gate; `ai-dev task complete` los ejecuta. Sin comando, la verificación es manual.
-gate_commands: {}
-#  CODE: npm run lint
-#  BUILD: npm run build
-#  TEST: npm test
-#  SECURITY: npm audit --audit-level=high
+gate_commands:
+  CODE: npm run typecheck
+  BUILD: npm run build
+  TEST: npm test
+  SECURITY: npm audit --audit-level=high
 
 # Adaptadores de asistentes de IA que se generan (`ai-dev adapters sync`). agents-md siempre se incluye.
 adapters: [agents-md, claude-code, cursor, copilot, gemini]
