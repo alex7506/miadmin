@@ -8,7 +8,7 @@ Bóveda personal de accesos a sitios web que funciona íntegramente en el navega
 |---|---|
 | ![Bóveda en modo oscuro](docs/capturas/boveda-oscuro.png) | ![Bóveda en móvil](docs/capturas/boveda-movil.png) |
 
-Es el proyecto piloto con el que se validó la metodología [Software AI Development](https://github.com/alex7506/software-ai-development) y su herramienta `ai-dev`.
+Es el proyecto piloto con el que se validó la metodología [Software AI Development](https://github.com/alex7506/software-ai-development) y su herramienta `ai-dev`. El [tutorial del manual](https://alex7506.github.io/software-ai-development/tutorial/primer-proyecto) recorre paso a paso cómo se construyó.
 
 ## Uso
 ```bash
