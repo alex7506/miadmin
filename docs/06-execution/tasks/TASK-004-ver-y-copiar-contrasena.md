@@ -3,7 +3,7 @@ document_id: TASK-004
 document_type: TASK
 title: Ver y copiar contraseña
 version: 0.1.0
-status: IN_PROGRESS
+status: COMPLETED
 project: miadmin
 methodology_version: 0.9.0
 created_at: 2026-10-08
@@ -31,13 +31,24 @@ acceptance_criteria:
     description: Copiar la contraseña descifrada al portapapeles (FR-004 AC-2), con prueba
 blocked_by:
   - TASK-003
-evidence: []
+evidence:
+  - criterion: AC-1
+    type: TEST_RUN
+    ref: "src/vault.test.ts › FR-004 AC-1: descifra la contraseña del sitio elegido; error si no existe o si está bloqueada; commit 99e80bf"
+    recorded_at: 2026-10-08
+  - criterion: AC-2
+    type: TEST_RUN
+    ref: "src/vault.test.ts › FR-004 AC-2: copyPassword escribe la contraseña descifrada en el portapapeles; commit 99e80bf"
+    recorded_at: 2026-10-08
 auto_fix_attempts: 0
 relations:
   - type: IMPLEMENTS
     target: FR-004
   - type: DEPENDS_ON
     target: TASK-003
+provenance:
+  generated_by: claude-code
+  model: claude-opus-5-5
 ---
 
 # TASK-004 — Ver y copiar contraseña
