@@ -1,0 +1,4 @@
+# Secretos (ai-dev)
+.env
+.env.*
+!.env.example

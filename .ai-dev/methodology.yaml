@@ -1,0 +1,11 @@
+# Identidad del proyecto y versión fijada de la metodología. Cambiar mode o version requiere un CHANGE_REQUEST.
+methodology:
+  id: software-ai-development
+  version: 0.9.0
+project:
+  id: miadmin
+  name: MiAdmin
+  description: ""
+mode: STANDARD
+technology_profile: null
+adopted_at: null
