@@ -1,6 +1,6 @@
 {
   "name": "miadmin",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "private": true,
   "type": "module",
   "description": "MiAdmin — bóveda personal de accesos a sitios, cifrada en el navegador (piloto de Software AI Development).",
