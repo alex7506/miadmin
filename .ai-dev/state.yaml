@@ -1,8 +1,8 @@
 # Estado operativo del proyecto. Lo mantiene la CLI; no editar a mano.
 phase: DEVELOPMENT
 status: ACTIVE
-current_task: null
+current_task: TASK-002
 pending_decisions: []
 blocked_reason: null
 phase_started_at: 2026-10-08T22:07:16.628Z
-updated_at: 2026-10-08T22:09:58.721Z
+updated_at: 2026-10-08T22:10:14.845Z
