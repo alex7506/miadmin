@@ -3,13 +3,13 @@ document_id: CHANGE-001
 document_type: CHANGE_REQUEST
 title: Rediseño visual y metodología 1.0.0
 version: 0.1.0
-status: ANALYZING
+status: IMPLEMENTING
 project: miadmin
 methodology_version: 0.9.0
 created_at: 2026-10-08
 updated_at: 2026-10-08
 author: Claude Code
-approved_by: null
+approved_by: alexander
 source_of_truth: true
 reason: Publicar MiAdmin como proyecto de ejemplo de la metodología con una interfaz cuidada, y alinearlo con la metodología 1.0.0.
 requested_by: alexander
@@ -18,6 +18,7 @@ reentry_phase: PLANNING
 relations:
   - type: AFFECTS
     target: ARCH-001
+approved_at: 2026-10-08
 ---
 
 # CHANGE-001 — Rediseño visual y metodología 1.0.0

@@ -157,3 +157,26 @@ approvals:
     at: 2026-10-08T22:20:22.188Z
     target_type: PHASE
     target: RELEASE
+  - id: APR-021
+    by: alexander
+    role: PRODUCT_OWNER
+    decision: APPROVED
+    at: 2026-10-08T22:59:40.345Z
+    target_type: CHANGE
+    target: CHANGE-001
+    target_version: 0.1.0
+    target_hash: 33c2b517a0960f20
+  - id: APR-022
+    by: alexander
+    role: TECH_LEAD
+    decision: APPROVED
+    at: 2026-10-08T22:59:41.676Z
+    target_type: PHASE
+    target: PLANNING
+  - id: APR-023
+    by: alexander
+    role: TECH_LEAD
+    decision: APPROVED
+    at: 2026-10-08T22:59:43.336Z
+    target_type: PHASE
+    target: BOOTSTRAPPING
