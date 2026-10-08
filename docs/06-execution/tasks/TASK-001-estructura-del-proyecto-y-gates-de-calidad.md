@@ -3,7 +3,7 @@ document_id: TASK-001
 document_type: TASK
 title: Estructura del proyecto y gates de calidad
 version: 0.1.0
-status: IN_PROGRESS
+status: COMPLETED
 project: miadmin
 methodology_version: 0.9.0
 created_at: 2026-10-08
@@ -32,10 +32,25 @@ acceptance_criteria:
   - id: AC-3
     description: gate_commands de .ai-dev/configuration.yaml definen CODE, BUILD, TEST y SECURITY y pasan
 blocked_by: []
-evidence: []
+evidence:
+  - criterion: AC-1
+    type: LOG
+    ref: "npm run build: ✓ built, dist/index.html y dist/assets generados (commit f07038e)"
+    recorded_at: 2026-10-08
+  - criterion: AC-2
+    type: TEST_RUN
+    ref: "npm test: 1 passed; npm run typecheck sin errores (commit f07038e)"
+    recorded_at: 2026-10-08
+  - criterion: AC-3
+    type: REPORT
+    ref: "gate_commands CODE/BUILD/TEST/SECURITY configurados; npm audit --audit-level=high: 0 vulnerabilidades tras subir vite 8.3.4 y vitest 5.0.3"
+    recorded_at: 2026-10-08
 auto_fix_attempts: 0
 relations: []
 justification: "Base técnica para implementar los requisitos: proyecto Vite + TypeScript + Vitest (dependencias aprobadas en ADR-001) y comandos de los gates."
+provenance:
+  generated_by: claude-code
+  model: claude-opus-5-5
 ---
 
 # TASK-001 — Estructura del proyecto y gates de calidad
