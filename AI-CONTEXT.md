@@ -18,6 +18,8 @@ Ver `docs/00-intake/INTAKE-001-intake-miadmin.md` (y el PRD cuando exista).
 
 ## Fuera de alcance
 - Documentos y otros módulos, equipos por cliente, logo y dominio propio, recuperación de la clave maestra.
+- Pasarela de pago (planes sin definir) y subdominios por cliente (sin dominio propio todavía): el espacio del cliente se identifica por ruta `/c/<cliente>`.
+- Plazo del ciclo: 2 días. Despliegue en Vercel (`*.vercel.app`). País: Colombia (Ley 1581 de 2012).
 
 ## Fuentes de verdad
 | Tema | Documento |
