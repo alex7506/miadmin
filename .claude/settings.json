@@ -9,7 +9,9 @@
       "Read(.env.*)",
       "Read(!.env.example)",
       "Bash(git push --force *)",
-      "Bash(git push -f *)"
+      "Bash(git push -f *)",
+      "Bash(ai-dev review *)",
+      "Bash(npx ai-dev review *)"
     ],
     "ask": [
       "Bash(git push *)",

@@ -6,6 +6,6 @@ project:
   id: miadmin
   name: MiAdmin
   description: ""
-mode: STANDARD
-technology_profile: null
+mode: LITE
+technology_profile: vite-typescript-local
 adopted_at: null

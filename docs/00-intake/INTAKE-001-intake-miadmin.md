@@ -2,7 +2,7 @@
 document_id: INTAKE-001
 document_type: PROJECT_INTAKE
 title: Intake MiAdmin
-version: 0.1.0
+version: 0.2.0
 status: IN_REVIEW
 project: miadmin
 methodology_version: 0.9.0
@@ -14,81 +14,64 @@ source_of_truth: true
 relations: []
 ---
 
-# Intake — MiAdmin
+# Intake — MiAdmin (piloto mínimo)
 
 ## Problema
-Las personas acumulan accesos a decenas de sitios (estudio, trámites administrativos, correo, etc.), con su URL, usuario y contraseña dispersos en notas, navegadores o memoria. No tienen un espacio personal propio, ordenado y seguro donde centralizar esa información y, más adelante, documentos y otros datos personales.
+Validar de punta a punta la metodología Software AI Development y su herramienta `ai-dev` en un proyecto real e independiente, antes de usarlas como estándar en desarrollos productivos. Se necesita un producto pequeño pero con decisiones reales (requisitos, arquitectura, seguridad, pruebas y release) para ejercitar todo el ciclo.
 
 ## Objetivo
-Construir **MiAdmin**, una plataforma SaaS de administración personal que el propietario vende a sus clientes. Cada cliente obtiene su propio espacio aislado, con su tema visual y su subdominio, donde gestiona sus accesos a sitios web de forma segura. La plataforma crece por módulos.
+Construir **MiAdmin mínimo**: una bóveda personal de accesos a sitios web que funciona íntegramente en el navegador. Es el primer módulo de la visión completa de MiAdmin (SaaS multi-tenant), reducido a lo indispensable.
 
-Este primer ciclo tiene un **doble objetivo**: entregar un MVP funcional de MiAdmin y validar de punta a punta la metodología Software AI Development y su herramienta `ai-dev`, para dejarla aprobada como estándar de los siguientes desarrollos. **Plazo: 2 días.**
-
-Éxito del MVP:
-- Un cliente se registra solo, obtiene 1 mes de prueba, crea su clave maestra y gestiona sus sitios por categorías en su espacio aislado.
-- Ni el propietario ni una filtración de la base de datos permiten leer las contraseñas de los clientes.
-- El propietario gestiona los clientes desde su panel de superadministrador.
-- La aplicación queda desplegada en Vercel.
-- El proyecto recorre todas las fases de la metodología hasta RELEASE con trazabilidad `INTEGRITY_OK`.
-- Métricas de negocio (clientes activos, conversión, retención): UNKNOWN.
+Éxito:
+- El ciclo completo (INTAKE → RELEASE) se recorre con `ai-dev`, con aprobaciones humanas registradas y trazabilidad aceptable para el modo LITE.
+- La bóveda permite crear una clave maestra, gestionar categorías y sitios y consultar contraseñas descifradas.
+- Las contraseñas nunca se almacenan en claro.
+- Plazo: 2 días.
 
 ## Usuarios
 | Usuario | Necesidad |
 |---|---|
-| **Superadministrador** (propietario de MiAdmin) | Crear, suspender y supervisar clientes; ver el estado de sus suscripciones; configurar la plataforma. No accede al contenido de los clientes. |
-| **Cliente** (tenant: una persona) | Tener su espacio privado, personalizar sus colores, organizar sus sitios por categorías y consultar sus credenciales de forma segura. |
+| Persona usuaria (una sola, en su navegador) | Guardar y consultar de forma segura sus accesos a sitios, organizados por categorías. |
+| Propietario (responsable de la metodología) | Comprobar que la metodología y `ai-dev` funcionan en un caso real. |
 
 ## Alcance inicial
-- Multi-tenant: cada cliente es una persona con datos aislados del resto.
-- Registro libre de clientes con **periodo de prueba de 1 mes**; al vencer, el acceso queda restringido hasta activar una suscripción.
-- Panel de superadministrador: consulta, suspensión y reactivación de clientes y estado de su prueba o suscripción.
-- Autenticación de clientes y del superadministrador, con segundo factor.
-- Identificación del espacio del cliente por ruta (`/c/<cliente>`) mientras no haya dominio propio; el modelo de datos queda preparado para subdominios.
-- Personalización de tema por cliente (colores, modo claro/oscuro).
-- Módulo **Sitios**: nombre, URL, descripción, usuario, contraseña y categoría.
-- Categorías gestionables por el cliente (p. ej. estudio, administrativo, correos electrónicos).
-- Contraseñas cifradas en el navegador con una clave maestra del cliente (zero-knowledge).
-- Arquitectura preparada para añadir módulos.
+- Clave maestra: creación y desbloqueo de la bóveda.
+- Categorías: crear y eliminar (p. ej. estudio, administrativo, correos electrónicos).
+- Sitios: crear, listar y eliminar, con nombre, URL, descripción, usuario, contraseña y categoría.
+- Ver y copiar la contraseña descifrada de un sitio.
+- Cifrado de las contraseñas en el navegador (WebCrypto); datos guardados en el almacenamiento local del navegador.
+- Release etiquetado (`v0.1.0`) con build reproducible.
 
 ## Fuera de alcance
-- Módulos de documentos e información (fases posteriores).
-- Varios usuarios por cliente (equipos u organizaciones).
-- Logo propio y dominio propio del cliente.
-- Recuperación de la clave maestra (por diseño zero-knowledge, si se pierde no se puede recuperar el contenido).
-- **Cobro con pasarela de pago**: los planes y precios no están definidos. Se aplaza a un ciclo posterior (solicitud de cambio cuando se definan); el MVP solo gestiona el periodo de prueba y el estado de la suscripción.
-- **Subdominio por cliente**: requiere dominio propio (Vercel no admite subdominios comodín sobre `*.vercel.app`). Se activará al registrar el dominio.
-- Aplicaciones móviles nativas y extensiones de navegador.
-- Autocompletado de contraseñas en otros sitios.
+- Multi-tenant, panel de superadministrador, registro de clientes y periodo de prueba.
+- Suscripciones y cobros.
+- Backend, base de datos en servidor y sincronización entre dispositivos.
+- Subdominios, personalización de tema, despliegue público en Vercel (se hará al retomar la visión completa).
+- Recuperación de la clave maestra (por diseño, si se pierde no se recupera el contenido).
+
+La visión completa (SaaS multi-tenant con superadministrador, prueba de 1 mes, suscripciones, tema y subdominio por cliente, operación en Colombia bajo la Ley 1581 de 2012) queda registrada para un proyecto posterior.
 
 ## Restricciones conocidas
-- Equipo: una persona (propietario) apoyada por agentes de IA.
-- Tecnología: se decidirá en la fase TECHNOLOGY. Debe permitir aislamiento por tenant en la capa de datos, subdominios comodín, criptografía en el navegador (WebCrypto) y una pasarela de suscripciones.
-- Plazo: **2 días** para el ciclo completo. Presupuesto: UNKNOWN (se prioriza infraestructura con capa gratuita).
-- Despliegue: **Vercel**, con su dominio gratuito (`*.vercel.app`) mientras se define el dominio.
-- País de operación: **Colombia**. Normativa aplicable: Ley 1581 de 2012 de protección de datos personales (Habeas Data) y Decreto 1377 de 2013: requieren autorización del titular, política de tratamiento de datos y atención de consultas y reclamos.
-- Desarrollo asistido con Claude Code sobre un plan **Claude Pro** (plan de consumo, sin contrato empresarial).
+- Plazo: 2 días. Criterio de recorte: se prioriza recorrer todas las fases sobre la amplitud funcional.
+- Equipo: una persona responsable; el desarrollo lo ejecuta un agente de IA (Claude Code).
+- Sin backend: todo funciona en el navegador.
 
 ## Datos que manejará
 | Dato | Clasificación |
 |---|---|
-| Contraseñas de sitios de los clientes | **RESTRICTED**: solo existen en claro en el navegador del cliente; se almacenan cifradas. |
-| Usuarios de acceso, URLs y descripciones de sitios | CONFIDENTIAL |
-| Datos de cuenta del cliente (nombre, email) | CONFIDENTIAL |
-| Estado de suscripción y facturación | CONFIDENTIAL (los datos de tarjeta los gestiona la pasarela) |
-| Tema y categorías | INTERNAL |
+| Contraseñas de sitios | **RESTRICTED**: solo existen en claro en memoria del navegador; se guardan cifradas. |
+| Usuarios de acceso, URLs y descripciones | CONFIDENTIAL |
+| Categorías | INTERNAL |
+| Código y documentación del proyecto | INTERNAL |
+
+En desarrollo y pruebas solo se usan credenciales ficticias.
 
 ## Modo de rigor propuesto
-**STANDARD**, con controles de seguridad adicionales como políticas locales (plan de calidad y seguridad obligatorio, aislamiento por tenant, cifrado en el navegador y credenciales ficticias en desarrollo). Se descarta CRITICAL porque exige doble aprobación humana y el proyecto tiene un solo responsable.
+**LITE**: piloto de validación sin usuarios externos ni datos reales; una sola persona aprueba todas las fases. Las políticas locales mantienen los controles críticos (cifrado obligatorio y credenciales ficticias).
 
 ## Incógnitas
 | Pregunta | Estado | Responsable |
 |---|---|---|
-| Planes y precios de suscripción | UNKNOWN (aún no definido) | Propietario |
-| Límites por plan (número de sitios, categorías, módulos) | UNKNOWN (aún no definido) | Propietario |
-| Moneda de cobro | UNKNOWN (previsiblemente COP; se decide con los planes) | Propietario |
-| Región donde se alojarán los datos | UNKNOWN (se decide en TECHNOLOGY según el proveedor de base de datos) | Propietario |
-| Dominio principal | UNKNOWN (temporalmente `*.vercel.app`) | Propietario |
-| ¿Está desactivada la opción de Claude Pro que permite usar las conversaciones para entrenar modelos? Define qué datos del proyecto puede recibir el agente. | UNKNOWN | Propietario |
-| País de operación | Resuelto: Colombia | — |
-| Registro de clientes | Resuelto: registro libre con prueba de 1 mes | — |
+| ¿Está desactivada en Claude Pro la opción de usar conversaciones para entrenar modelos? | UNKNOWN (no afecta al piloto: solo se comparten código y datos ficticios) | Propietario |
+| País de operación | Resuelto: Colombia (aplica a la visión completa) | — |
 | Plazo | Resuelto: 2 días | — |

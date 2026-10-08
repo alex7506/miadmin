@@ -1,13 +1,64 @@
 # Requisitos del proyecto (docs/01-product/requirements.yaml). El PRD da el contexto; aquí vive el detalle verificable.
-project: "miadmin"
+project: miadmin
 prd_ref: PRD-001
-requirements: []
-#  - id: FR-001
-#    title: <título corto>
-#    description: <qué debe hacer el sistema>
-#    status: PROPOSED
-#    priority: MUST
-#    acceptance_criteria:
-#      - id: AC-1
-#        description: <condición verificable>
-#    source: INTAKE-001
+requirements:
+  - id: FR-001
+    title: Clave maestra y desbloqueo
+    description: La persona crea una clave maestra la primera vez y la usa para desbloquear la bóveda en cada sesión.
+    status: PROPOSED
+    priority: MUST
+    source: INTAKE-001
+    acceptance_criteria:
+      - id: AC-1
+        description: Sin bóveda previa, se pide crear una clave maestra de al menos 12 caracteres, escrita dos veces y coincidente.
+      - id: AC-2
+        description: Con la clave correcta la bóveda se desbloquea; con una incorrecta se muestra un error y no se descifra ningún dato.
+      - id: AC-3
+        description: Al bloquear la bóveda, la clave derivada se descarta de memoria y se vuelve a pedir la clave maestra.
+  - id: FR-002
+    title: Categorías
+    description: La persona organiza sus sitios en categorías (p. ej. estudio, administrativo, correos electrónicos).
+    status: PROPOSED
+    priority: MUST
+    source: INTAKE-001
+    acceptance_criteria:
+      - id: AC-1
+        description: Se puede crear una categoría con un nombre no vacío y no repetido (sin distinguir mayúsculas).
+      - id: AC-2
+        description: Se puede eliminar una categoría sin sitios; si tiene sitios, se impide y se explica el motivo.
+  - id: FR-003
+    title: Sitios
+    description: La persona registra sus accesos a sitios web con nombre, URL, descripción, usuario, contraseña y categoría.
+    status: PROPOSED
+    priority: MUST
+    source: INTAKE-001
+    acceptance_criteria:
+      - id: AC-1
+        description: Se puede crear un sitio con nombre, URL http(s) válida, descripción opcional, usuario, contraseña y una categoría existente; los campos obligatorios vacíos o la URL inválida se rechazan.
+      - id: AC-2
+        description: La lista muestra los sitios con nombre, URL, usuario y categoría, se puede filtrar por categoría y nunca muestra contraseñas.
+      - id: AC-3
+        description: Se puede eliminar un sitio.
+  - id: FR-004
+    title: Consultar contraseña
+    description: La persona ve o copia la contraseña de un sitio cuando la necesita.
+    status: PROPOSED
+    priority: MUST
+    source: INTAKE-001
+    acceptance_criteria:
+      - id: AC-1
+        description: A petición, se muestra la contraseña descifrada del sitio elegido.
+      - id: AC-2
+        description: Se puede copiar la contraseña descifrada al portapapeles.
+  - id: NFR-001
+    title: Cifrado de contraseñas en el navegador
+    description: Las contraseñas solo existen en claro en memoria del navegador; se almacenan cifradas con una clave derivada de la clave maestra.
+    status: PROPOSED
+    priority: MUST
+    category: Seguridad
+    source: INTAKE-001
+    acceptance_criteria:
+      - id: AC-1
+        description: Cada contraseña se cifra con AES-GCM de 256 bits usando una clave derivada con PBKDF2-SHA-256 (al menos 600 000 iteraciones y sal aleatoria de 16 bytes) y un IV aleatorio de 12 bytes por cifrado.
+      - id: AC-2
+        description: El almacenamiento del navegador nunca contiene contraseñas de sitios ni la clave maestra en claro (verificado por prueba automática).

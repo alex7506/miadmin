@@ -1,19 +1,11 @@
 # Todas las políticas de agents/policies/agent-policies.yaml están siempre activas.
 # Aquí solo se añaden políticas propias, más restrictivas.
 local_policies:
-  - id: local_quality_security_required
+  - id: local_no_plaintext_secrets_stored
     severity: BLOCKING
-    description: Aunque el modo sea STANDARD, el proyecto exige un documento QUALITY_SECURITY aprobado (con modelo de amenazas) antes de cerrar PLANNING, porque guarda credenciales de terceros.
-    extends: no_security_control_removal
-  - id: local_no_plaintext_secrets_server
-    severity: BLOCKING
-    description: Las contraseñas de la bóveda se cifran en el navegador; el servidor, los logs y el superadministrador nunca reciben ni pueden descifrar contraseñas en claro.
+    description: Las contraseñas de la bóveda se cifran en el navegador con la clave maestra; nunca se guardan, registran ni transmiten en claro.
     extends: data_classification_respected
   - id: local_fake_credentials_only
     severity: BLOCKING
-    description: En desarrollo, pruebas, evidencia y conversaciones con agentes solo se usan credenciales ficticias; nunca credenciales reales de clientes ni del equipo.
+    description: En desarrollo, pruebas, evidencia y conversaciones con agentes solo se usan credenciales ficticias; nunca credenciales reales.
     extends: no_secrets
-  - id: local_tenant_isolation
-    severity: BLOCKING
-    description: Todo acceso a datos se filtra por tenant en la capa de datos (no solo en la interfaz); cada cambio que toque datos incluye una prueba de aislamiento entre tenants.
-    extends: data_classification_respected

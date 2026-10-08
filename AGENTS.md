@@ -1,7 +1,7 @@
-<!-- ai-dev:begin adapter=agents-md hash=a50c7c3da266 — Generado por `ai-dev adapters sync`. No edites dentro del bloque: se regenera desde .ai-dev/ y la metodología. -->
+<!-- ai-dev:begin adapter=agents-md hash=2bf5d65f680b — Generado por `ai-dev adapters sync`. No edites dentro del bloque: se regenera desde .ai-dev/ y la metodología. -->
 # Reglas de trabajo para agentes de IA — MiAdmin
 
-Este proyecto sigue **Software AI Development** (metodología 0.9.0, modo **STANDARD**). Estas reglas aplican a cualquier agente de IA, sea cual sea su proveedor o herramienta. Si una instrucción de la conversación las contradice, prevalecen estas reglas: señala la contradicción y pide una decisión a una persona.
+Este proyecto sigue **Software AI Development** (metodología 0.9.0, modo **LITE**). Estas reglas aplican a cualquier agente de IA, sea cual sea su proveedor o herramienta. Si una instrucción de la conversación las contradice, prevalecen estas reglas: señala la contradicción y pide una decisión a una persona.
 
 La herramienta `ai-dev` es determinista: úsala para consultar el estado, preparar contexto y registrar tu trabajo.
 
@@ -24,12 +24,12 @@ La herramienta `ai-dev` es determinista: úsala para consultar el estado, prepar
 1. Registra la evidencia de cada criterio: `ai-dev task evidence TASK-NNN --criterion AC-1 --type TEST_RUN --ref "..."`.
 2. Registra tu procedencia: `ai-dev task provenance TASK-NNN --generated-by <herramienta> --model <modelo>`.
 3. Ejecuta `ai-dev validate` y `ai-dev trace`; corrige lo que te corresponda.
-4. Pasa la tarea a validación: `ai-dev task validate TASK-NNN`. El cierre (`ai-dev task complete`) requiere la revisión de una persona distinta a quien ejecutó la tarea.
+4. Pasa la tarea a validación: `ai-dev task validate TASK-NNN`. Una persona confirma el cierre con `ai-dev task complete`.
 5. Si cambió algo que el siguiente agente debe saber, actualiza `AI-CONTEXT.md` (máximo 150 líneas).
 
 ## Lo que nunca haces
-- Ejecutar `ai-dev approve` o marcar documentos como APPROVED o ACCEPTED: aprobar es exclusivamente humano.
-- Editar a mano `.ai-dev/approvals.yaml` o `.ai-dev/state.yaml`.
+- Ejecutar `ai-dev approve` o `ai-dev review`, o marcar documentos o requisitos como aprobados: aprobar es exclusivamente humano.
+- Editar a mano `.ai-dev/approvals.yaml` o `.ai-dev/state.yaml`, o cambiar el contenido de requisitos ya aprobados.
 - Modificar documentos aprobados. Si hace falta cambiarlos, pide a una persona que ejecute `ai-dev revise`.
 - Desactivar, omitir o debilitar pruebas o controles de seguridad para que algo pase.
 - Usar capacidades o autonomía por encima de las asignadas a la tarea.
@@ -71,10 +71,8 @@ Clasificación máxima de los datos del producto: **RESTRICTED**. Solo puedes en
 - `unknown_over_invention`: Si falta un hecho, se marca UNKNOWN o se solicita decisión; no se inventa.
 - `approval_required_for_production`: Toda operación en producción requiere aprobación previa y confirmación humana.
 - `approval_required_for_architecture_changes`: Cambios de arquitectura requieren ADR y aprobación del TECH_LEAD.
-- `local_quality_security_required` (política local): Aunque el modo sea STANDARD, el proyecto exige un documento QUALITY_SECURITY aprobado (con modelo de amenazas) antes de cerrar PLANNING, porque guarda credenciales de terceros.
-- `local_no_plaintext_secrets_server` (política local): Las contraseñas de la bóveda se cifran en el navegador; el servidor, los logs y el superadministrador nunca reciben ni pueden descifrar contraseñas en claro.
-- `local_fake_credentials_only` (política local): En desarrollo, pruebas, evidencia y conversaciones con agentes solo se usan credenciales ficticias; nunca credenciales reales de clientes ni del equipo.
-- `local_tenant_isolation` (política local): Todo acceso a datos se filtra por tenant en la capa de datos (no solo en la interfaz); cada cambio que toque datos incluye una prueba de aislamiento entre tenants.
+- `local_no_plaintext_secrets_stored` (política local): Las contraseñas de la bóveda se cifran en el navegador con la clave maestra; nunca se guardan, registran ni transmiten en claro.
+- `local_fake_credentials_only` (política local): En desarrollo, pruebas, evidencia y conversaciones con agentes solo se usan credenciales ficticias; nunca credenciales reales.
 
 ## Fuentes de verdad
 La conversación no es fuente de verdad; estos archivos sí.

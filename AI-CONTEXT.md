@@ -4,11 +4,11 @@
      No duplica documentos: los referencia. Se actualiza al cerrar tareas que cambien su contenido. -->
 
 ## Propósito
-SaaS multi-tenant de administración personal. Un superadministrador (el propietario) vende espacios aislados a clientes (una persona por tenant), cada uno con su tema y su subdominio. Primer módulo: gestor de accesos a sitios web con contraseñas cifradas en el navegador (zero-knowledge).
+Piloto mínimo para validar la metodología y `ai-dev`: bóveda personal de accesos a sitios web que funciona solo en el navegador, con contraseñas cifradas mediante una clave maestra (WebCrypto).
 
 ## Estado
 - Fase y estado: ver `.ai-dev/state.yaml`
-- Modo de rigor: STANDARD
+- Modo de rigor: LITE
 
 ## Stack aprobado
 Sin decidir hasta la fase TECHNOLOGY. No elijas ni instales tecnologías antes.
@@ -17,9 +17,8 @@ Sin decidir hasta la fase TECHNOLOGY. No elijas ni instales tecnologías antes.
 Ver `docs/00-intake/INTAKE-001-intake-miadmin.md` (y el PRD cuando exista).
 
 ## Fuera de alcance
-- Documentos y otros módulos, equipos por cliente, logo y dominio propio, recuperación de la clave maestra.
-- Pasarela de pago (planes sin definir) y subdominios por cliente (sin dominio propio todavía): el espacio del cliente se identifica por ruta `/c/<cliente>`.
-- Plazo del ciclo: 2 días. Despliegue en Vercel (`*.vercel.app`). País: Colombia (Ley 1581 de 2012).
+- Multi-tenant, superadministrador, suscripciones, backend, tema, subdominios y despliegue público (visión completa, proyecto posterior).
+- Recuperación de la clave maestra.
 
 ## Fuentes de verdad
 | Tema | Documento |
@@ -34,4 +33,4 @@ Ver `docs/00-intake/INTAKE-001-intake-miadmin.md` (y el PRD cuando exista).
 - Antes de trabajar en una tarea: `ai-dev context <TASK-ID>`.
 - Antes de cerrarla: `ai-dev validate` y `ai-dev trace`.
 - Nunca ejecutar `ai-dev approve`: la aprobación es humana.
-- Las contraseñas nunca llegan en claro al servidor; usa solo credenciales ficticias (ver `.ai-dev/policies.yaml`).
+- Las contraseñas nunca se guardan en claro; usa solo credenciales ficticias (ver `.ai-dev/policies.yaml`).
