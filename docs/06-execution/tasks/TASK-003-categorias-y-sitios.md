@@ -3,7 +3,7 @@ document_id: TASK-003
 document_type: TASK
 title: Categorías y sitios
 version: 0.1.0
-status: IN_PROGRESS
+status: COMPLETED
 project: miadmin
 methodology_version: 0.9.0
 created_at: 2026-10-08
@@ -35,7 +35,23 @@ acceptance_criteria:
     description: El almacenamiento nunca contiene contraseñas ni la clave maestra en claro (NFR-001 AC-2), con prueba que inspecciona localStorage
 blocked_by:
   - TASK-002
-evidence: []
+evidence:
+  - criterion: AC-1
+    type: TEST_RUN
+    ref: src/vault.test.ts › categorías (FR-002) AC-1 y AC-2 en verde; commit 5c35f6e
+    recorded_at: 2026-10-08
+  - criterion: AC-2
+    type: TEST_RUN
+    ref: src/vault.test.ts › sitios (FR-003) AC-1 (validaciones) y AC-3 (eliminar) en verde; commit 5c35f6e
+    recorded_at: 2026-10-08
+  - criterion: AC-3
+    type: TEST_RUN
+    ref: "src/vault.test.ts › sitios (FR-003) AC-2: lista y filtro sin campo password; commit 5c35f6e"
+    recorded_at: 2026-10-08
+  - criterion: AC-4
+    type: TEST_RUN
+    ref: "src/vault.test.ts › NFR-001 AC-2: el almacenamiento no contiene la contraseña ficticia ni la clave maestra; password guardada como {iv, data}; commit 5c35f6e"
+    recorded_at: 2026-10-08
 auto_fix_attempts: 0
 relations:
   - type: IMPLEMENTS
@@ -46,6 +62,9 @@ relations:
     target: NFR-001
   - type: DEPENDS_ON
     target: TASK-002
+provenance:
+  generated_by: claude-code
+  model: claude-opus-5-5
 ---
 
 # TASK-003 — Categorías y sitios
